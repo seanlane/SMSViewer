@@ -31,11 +31,13 @@
 
 	function receivedText() { 
 		var docContents = new Array();
-		$xml = $( $.parseXML( fr.result ) );
+		var text = fr.result.replace('&#5', '\&\#5');
+		$xml = $( $.parseXML( text ) );
 		$xml.find("sms").each(function(){
-			var name = $(this).attr("contact_name");
+			var var_name = $(this).attr("contact_name");
+			if(!var_name || var_name == "(Unknown)") var_name = $(this).attr("address").replace('+1', '');
 			var temp = $.grep(docContents, function (e) { 
-				return e.name == name; 
+				return e.name == var_name; 
 			});
 			if( temp.length ) {
 				temp[0].texts.push({ 	readable_date: $(this).attr("readable_date"),
@@ -48,7 +50,7 @@
 			else {
 				docContents.push(
 					{ 
-						name: $(this).attr("contact_name"),
+						name: var_name,
 						texts: [{	
 									readable_date: $(this).attr("readable_date"),
 									address: $(this).attr("address"),
