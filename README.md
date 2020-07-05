@@ -10,7 +10,7 @@ instead of having my data stuck in some form of a [walled garden](https://en.wik
 At the moment, this project only supports the limited reading of SMS messages, so no MMS (pictures, text, videos, etc.)
 can be viewed, but maybe I can implement that sometime in the future.
 
-To use, navigate to the demo page at [sean.tl/SMSViewer](http://sean.tl/SMSViewer), browser to find the XML backup 
+To use, navigate to the demo page at [sean.lane.sh/SMSViewer](https://sean.lane.sh/SMSViewer), browser to find the XML backup 
 file on your local machine, and once selected, wait for it to load. 
 
 As you might see in the source code, it simply looks for messages that have the same Contact Name supplied with the 
